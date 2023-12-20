@@ -1,4 +1,24 @@
 from turtle import *
+import turtle
+win = turtle.Screen()
+# import Passcode
+
+
+def passcode():
+    write("Suspect is trying to enter the Passcode", font=style1)    
+    passcode_input = textinput("Input","Enter the Independance Day of America")
+    if(passcode_input == "1776"):
+        move_next()
+        write("Jewel is stolen", font=style1)    
+        resultt()
+        move_next()
+    else:
+        move_next()
+        write("Intruder Alert! The siren goes on", font=style1)    
+        resultt()
+        move_next()
+
+
 speed(0)
 penup()
 setposition(-680, 300)
@@ -14,6 +34,16 @@ def introduction():
     move_next()
     write("her grand birthday celebration, requested their discreet assistance. The target: A Priceless Royal Jewel", font=style1)
     move_next()
+    # image = "C:\Users\forum\Desktop\LIS875\FinalProject\final-project-rushabhsmitharshforum\final-project-rushabhsmitharshforum\Start_1.png"
+    screen = turtle.Screen()
+    screen.addshape("Intro_1.gif")
+    image_turtle = turtle.Turtle()
+    image_turtle.shape("Intro_1.gif")
+    image_turtle.penup()
+    image_turtle.goto(400,300)
+    # win.setup(width = 500, height = 1200)  
+    # win.bgpic('Intro_1.gif')
+    # turtle.mainloop()
     # Insert the introduction image here
 
 def sherlock_decision():
@@ -52,6 +82,14 @@ def suspect_weapon():
     # Insert the image of the hidden grove here
     return make_choice("What weapon do you want suspect to carry in the party: (Knife, Poison or Gun)", ['knife', 'poison', 'gun'])
 
+def resultt():
+    move_next()
+    write("The focus of the light was on the suspect in the room", font=style1)
+    move_next()
+    write("Sherlock: CHECKMATE!", font=style1)
+    move_next()
+
+
 def culprit_caught_knife():
     write("The party was going on very smoothly, suddenly there was a  power cut, everyone  started panicking, except Sherlock.", font=style1)
     move_next()
@@ -59,10 +97,9 @@ def culprit_caught_knife():
     move_next()
     write("to steal the royal diamond, soon as suspect tried to run from the royal room", font=style1)
     move_next()
-    write("The focus of the light was on the suspect in the room", font=style1)
+    passcode()
     move_next()
-    write("Sherlock: CHECKMATE!", font=style1)
-    move_next()
+    
     write("The lights in the palace were restored immediately, sherlock bought the culprit in front of the queen, the diamond was still in the hand of the culprit, sherlock said in", font=style1)
     move_next()
     write("front of everyone that the diamond is fake and real diamond is safe, everyone was shocked and started murmuring and thinking about where the real diamond is.", font=style1)
@@ -74,10 +111,11 @@ def culprit_caught_poison():
     move_next()
     write("to steal the royal diamond, soon as suspect tried to run from the royal room", font=style1)
     move_next()
-    write("The focus of the light was on the suspect in the room", font=style1)
+    
+    passcode()
+
     move_next()
-    write("Sherlock: CHECKMATE!", font=style1)
-    move_next()
+    
     write("Soon after sometime everyone became conscious, sherlock bought the culprit in front of the queen, the diamond was still in the hand of the culprit, sherlock said in front of everyone that the diamond is fake and", font=style1)
     move_next()
     write("real diamond is safe, everyone was shocked and started murmuring and thinking about where the real diamond is", font=style1)
@@ -89,10 +127,10 @@ def culprit_caught_gun():
     move_next()
     write("to steal the royal diamond, soon as suspect tried to run from the royal room", font=style1)
     move_next()
-    write("The focus of the light was on the suspect in the room", font=style1)
+    
+    passcode()
     move_next()
-    write("Sherlock: CHECKMATE!", font=style1)
-    move_next()
+    
     write("The lights in the palace were restored immediately, sherlock bought the culprit in front of the queen, the diamond was still in the hand of the culprit, sherlock said in", font=style1)
     move_next()
     write("front of everyone that the diamond is fake and real diamond is safe, everyone was shocked and started murmuring and thinking about where the real diamond is.", font=style1)
