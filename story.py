@@ -70,12 +70,12 @@ def introduction():
 def sherlock_decision():
     # Insert the image of Lila at the forest's edge here
     
-    return make_choice("Sherlock: Watson shall we embark on this royal endeavor?" , ['yes', 'quit'])
+    return make_choice("Sherlock: Watson shall we embark on this royal endeavor?" , ['yes', 'no', 'quit'])
     
 
 def security():
     write("Under the shadow of royal portraits and the echoes of past intrigues, Sherlock and Watson explore methods to protect jewel.", font=style1)
-    return make_choice("How should they secure the jewel?\na. Increase the number of bodyguards\nb. Implement stringent security checks for all attendees\nc. Disguise police officers as civilians among the guests" , ['a', 'b', 'c', 'quit'])
+    return make_choice("How should they secure the jewel?\na. Increase the number of bodyguards\nb. Implement stringent security checks for all attendees\nc. Disguise police officers as civilians among the guests (Type 'a','b','c')" , ['a', 'b', 'c', 'quit'])
 
 def suspects():
     move_next()
@@ -101,11 +101,11 @@ def suspects():
 def security_check():
     move_next()
     write("Suspect is trying to enter the palace, and he is stopped for security check", font=style1)
-    return make_choice("Do you want suspects to be caught? Yes or No", ["yes", "no"])
+    return make_choice("Do you want suspects to be caught? yes or no", ["yes", "no", "quit"])
 
 def suspect_weapon():
     # Insert the image of the hidden grove here
-    return make_choice("What weapon do you want suspect to carry in the party: (Knife, Poison or Gun)", ['knife', 'poison', 'gun'])
+    return make_choice("What weapon do you want suspect to carry in the party: (knife, poison or gun)", ['knife', 'poison', 'gun', 'quit'])
 
 def resultt():
     move_next()
@@ -170,17 +170,11 @@ def culprit_caught_gun():
 
 def culprit_guess():
     winsound.PlaySound("song.wav",winsound.SND_ASYNC)
-    return make_choice("Can you guess who was the culprit? (bartender, butler or nephew)", ['bartender', 'butler', 'nephew'])
+    return make_choice("Can you guess who was the culprit? (bartender, butler or nephew)", ['bartender', 'butler', 'nephew', 'quit'])
 
 def diamond_guess():
-    return make_choice("Can you guess where the real diamond is? (Saferoom or Queen's Crown)", ['saferoom', 'crown'])
+    return make_choice("Can you guess where the real diamond is? (saferoom or crown)", ['saferoom', 'crown', 'quit'])
 
-# def conclusion():
-#     write("\nAfter her adventures, Lila learns the value of curiosity, bravery, and the comfort of home.")
-#     move_next()
-#     write("She returns home, her heart filled with unforgettable memories and dreams of future adventures.")
-#     move_next()
-    # Insert the conclusion image here
 
 def quit_story():
     write("Thank you for your time, Good Bye, See You!")
@@ -220,6 +214,7 @@ def crown_final():
         image_turtle.shape("Img_End.gif")
         image_turtle.penup()
         image_turtle.goto(460,100)
+    
 
 decision = sherlock_decision()
 if decision == "yes":
@@ -468,6 +463,9 @@ if decision == "yes":
                 write("Yes, you guessed it correct", font=style1)
             elif decision == 'saferoom':
                 write("No, the correct option is queen's crown", font=style1)
+
+elif decision == "no" or "quit":
+    sys.exit()
     # elif decision == "quit":
     #     decision = quit_story()
             # Insert an image related to the treasure discovery here
