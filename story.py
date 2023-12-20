@@ -4,13 +4,11 @@ import winsound
 import sys
 
 screen = turtle.Screen()
-# import Passcode
 bgcolor("#1F3E5B")
 color("#C6C1C1")
-
 winsound.PlaySound("song.wav",winsound.SND_ASYNC)
 
-def passcode():
+def passcode():  # This function checks if the suspect has entered the correct passcode to steal the jewel. It displays an image and prompts for a passcode input, then determines whether the input matches the correct passcode.
     screen.addshape("Img_Stealing.gif")
     image_turtle = turtle.Turtle()
     image_turtle.shape("Img_Stealing.gif")
@@ -46,7 +44,7 @@ setposition(-630, 280)
 pendown()
 style = ('Arial', 25)
 style1 = ('Arial', 13)
-def introduction():
+def introduction(): # It sets the scene for the story, introducing the context and background of the London Jewel Heist, using text and images.
     write("The London Jewel Heist: A Sherlock Holmes Adventure", font=style)
     move_next()
     write("In the heart of London, where the fog clings to the Cobblestone streets, Sherlock Holmers and Dr. Watson", font=style1)
@@ -62,22 +60,16 @@ def introduction():
     image_turtle.shape("Intro_1.gif")
     image_turtle.penup()
     image_turtle.goto(460,100)
-    # win.setup(width = 500, height = 1200)  
-    # win.bgpic('Intro_1.gif')
-    # turtle.mainloop()
-    # Insert the introduction image here
-
-def sherlock_decision():
-    # Insert the image of Lila at the forest's edge here
-    
+  
+def sherlock_decision(): # This function prompts Sherlock to decide whether to accept the mission or not by presenting choices ('yes', 'no', 'quit').
     return make_choice("Sherlock: Watson shall we embark on this royal endeavor?" , ['yes', 'no', 'quit'])
     
 
-def security():
+def security(): #This function presents security options for Sherlock and Watson to choose from to protect the jewel, based on three choices given ('a', 'b', 'c').
     write("Under the shadow of royal portraits and the echoes of past intrigues, Sherlock and Watson explore methods to protect jewel.", font=style1)
     return make_choice("How should they secure the jewel?\na. Increase the number of bodyguards\nb. Implement stringent security checks for all attendees\nc. Disguise police officers as civilians among the guests (Type 'a','b','c')" , ['a', 'b', 'c', 'quit'])
 
-def suspects():
+def suspects(): #It introduces three suspects and reasons for suspecting them, setting the stage for Sherlock's investigation.
     move_next()
     write("On the eve of queens birthday, the palace is a flurry of activity. Three individuals catch sherlock's analytical eyes.", font=style1)
     move_next()
@@ -96,26 +88,26 @@ def suspects():
     write("Suspection reason: Bitter about his exclusion from royal priviliges, Desires to disrupt the line of succession", font=style1)
     move_next()
     write("The suspect tries to infiltrate the inner sanctum with omnious intent", font=style1)
-    # Insert the image of the underground world here
+   
 
-def security_check():
+def security_check(): #This function prompts a choice to decide if suspects should be caught during security checks ('yes', 'no', 'quit').
     move_next()
     write("Suspect is trying to enter the palace, and he is stopped for security check", font=style1)
     return make_choice("Do you want suspects to be caught? yes or no", ["yes", "no", "quit"])
 
-def suspect_weapon():
-    # Insert the image of the hidden grove here
+def suspect_weapon(): #Prompts a choice for the weapon the suspect would carry ('knife', 'poison', 'gun', 'quit').
+
     return make_choice("What weapon do you want suspect to carry in the party: (knife, poison or gun)", ['knife', 'poison', 'gun', 'quit'])
 
-def resultt():
+def resultt(): #Displays a message about the suspect being caught and Sherlock's triumph.
     move_next()
     write("The focus of the light was on the suspect in the room", font=style1)
     move_next()
     write("Sherlock: CHECKMATE!", font=style1)
     move_next()
 
-
-def culprit_caught_knife():
+#These functions describe events when suspects are caught with different weapons, each leading to different outcomes.
+def culprit_caught_knife(): 
     write("The party was going on very smoothly, suddenly there was a  power cut, everyone  started panicking, except Sherlock.", font=style1)
     move_next()
     write("By taking advantage of the power cutoff, the susoect tried to sneak into the royal room to steal the royal jewel", font=style1)
@@ -168,26 +160,26 @@ def culprit_caught_gun():
     move_next()
     write("front of everyone that the diamond is fake and real diamond is safe, everyone was shocked and started murmuring and thinking about where the real diamond is.", font=style1)
 
-def culprit_guess():
+#Functions prompting guesses about the culprit and the location of the real diamond ('bartender', 'butler', 'nephew', 'saferoom', 'crown', 'quit').
+def culprit_guess(): 
     winsound.PlaySound("song.wav",winsound.SND_ASYNC)
     return make_choice("Can you guess who was the culprit? (bartender, butler or nephew)", ['bartender', 'butler', 'nephew', 'quit'])
 
 def diamond_guess():
     return make_choice("Can you guess where the real diamond is? (saferoom or crown)", ['saferoom', 'crown', 'quit'])
 
-
 def quit_story():
     write("Thank you for your time, Good Bye, See You!")
     move_next()
 
-def move_next():
+def move_next(): #Moves the turtle to the next line for text display.
     penup()
     right(90)
     forward(18)
     left(90)
     pendown()
 
-def make_choice(prompt, options):
+def make_choice(prompt, options): # Handles user input and validates choices based on the given options.
     choice = textinput("Title", prompt)
     while choice not in options:
         write("Invalid choice. Please try again.")
@@ -196,7 +188,7 @@ def make_choice(prompt, options):
 
 
 introduction()
-def crown_final():
+def crown_final(): #Determines the final outcome based on the user's guess about the diamond's location.
     decision = diamond_guess()
     if decision == 'crown':
         move_next()
@@ -466,14 +458,5 @@ if decision == "yes":
 
 elif decision == "no" or "quit":
     sys.exit()
-    # elif decision == "quit":
-    #     decision = quit_story()
-            # Insert an image related to the treasure discovery here
-    # else:
-    #     write("\nLila finds her way back to the surface, encountering beautiful and mystical sights.")
-    #     move_next()
-            # Insert an image of Lila's return to the surface here
-
-# elif decision == "quit":
-#     decision = quit_story()
+  
 done()
